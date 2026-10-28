@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'de';
+const description = 'Schreiben Sie uns, wenn ein Kindergeld-, Renten- oder anderer Zahltermin nicht stimmt, oder wenn Sie den Zahltermin-Kalender auf Ihrer Seite einbinden möchten.';
+---
+<PageLayout title={`Kontakt zu ${SITE_NAMES[lang]}: Fehler melden, Kalender einbinden`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Kontakt', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Kontakt' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kontakt</h1>
+    <p>E-Mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Antwort meist innerhalb einer Woche.</p>
+    <h2>Ein Termin scheint falsch</h2>
+    <p>Nennen Sie die Seite, die Leistung, den Monat und, wenn möglich, die Fundstelle: die Terminliste der Familienkasse, eine Mitteilung der Rentenversicherung oder den Paragrafen. Wir prüfen an der Quelle und korrigieren alle Seiten zugleich.</p>
+    <h2>Fragen zu Ihrem eigenen Geld</h2>
+    <p>Wir kennen keine Akten und können keine Zahlung auslösen, prüfen oder beschleunigen. Wenn Ihr Geld nicht angekommen ist, wenden Sie sich an Ihre Familienkasse, Ihren Rentenversicherungsträger, Ihr Jobcenter, Ihre Agentur für Arbeit, Ihre Wohngeldstelle oder Ihr Amt für Ausbildungsförderung. Schicken Sie uns bitte keine Kindergeldnummer, Versicherungsnummer oder Bescheide.</p>
+    <h2>Kalender einbinden</h2>
+    <p>Beratungsstellen, Vereine, Seniorenbüros und Lokalzeitungen können die Rechner kostenlos einbinden: <a href={route('widget', lang)}>Einbinden</a>.</p>
+  </div>
+</PageLayout>

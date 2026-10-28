@@ -1,0 +1,63 @@
+---
+/**
+ * Accueil : le calendrier personnel « Meine nächsten Zahlungen », la bande des prochains versements, la réponse
+ * repliée, les quatre familles de pages en colonnes, le texte, les accordéons, la FAQ.
+ * Texte : src/content/home.ts ; dates : moteur (src/lib/engine/zahltermine.ts).
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import Body from './Body.astro';
+import { HOME, HOME_STRIP } from '../content/home';
+import { route, hasRoute, type Locale } from '../i18n/routes';
+import { GROUPS } from '../i18n/nav';
+import { helpers, sourceList } from '../lib/helpers';
+import { GUIDES } from '../lib/pages';
+import { displayDate } from '../lib/format';
+import { LAST_UPDATED, LANG_TAGS } from '../data/site-config';
+import { faqSchema, organizationSchema, websiteSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const x = HOME[lang];
+const path = route('home', lang);
+const h = helpers(lang);
+const sources = sourceList(HOME.sources, lang);
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(x.faqs, lang)];
+const gel = displayDate(LAST_UPDATED, LANG_TAGS[lang]);
+const how = { de: 'So rechnen wir', en: 'How we calculate' }[lang];
+const who = { de: 'Wer dahintersteht', en: 'Who is behind this' }[lang];
+const checked = { de: `Termine geprüft am ${gel}`, en: `Dates checked on ${gel}` }[lang];
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={x.faqs} sources={sources}>
+  <header class="mb-4">
+    <h1 class="text-[1.7rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{x.h1}</h1>
+    <p class="mt-2 text-base text-navy-700 sm:text-lg">{x.intro}</p>
+  </header>
+  <div data-outil data-chrome><Tool kind="meine" lang={lang} idPrefix="home" /></div>
+  <p class="mt-3 text-sm text-navy-600">{checked} · <a href={route('method', lang)} class="underline hover:text-navy-900">{how}</a> · <a href={route('about', lang)} class="underline hover:text-navy-900">{who}</a></p>
+  <nav data-chrome aria-label={x.monthTitle} class="my-8">
+    <p class="text-lg font-semibold text-navy-900">{x.monthTitle}</p>
+    <div class="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
+      {HOME_STRIP.map((c) => <a href={route(c.id, lang)} class="rounded-lg border border-navy-200 bg-white p-3 hover:border-accent-500"><span class="block text-xs font-medium uppercase tracking-wide text-navy-600">{c[lang]}</span><span class="tabular-nums mt-1 block text-lg font-bold text-navy-900">{c.v[lang]}</span></a>)}
+    </div>
+  </nav>
+  <Clamp text={x.resume} lang={lang} id="clamp-home" class="my-8" />
+  <div data-chrome data-sommaire-partiel class="my-10">
+    <p class="text-2xl font-bold text-navy-900">{x.groupsTitle}</p>
+    <div class="mt-4 grid gap-6 md:grid-cols-2">
+      {GROUPS.map((g) => (
+        <div class="rounded-xl border border-navy-200 bg-white p-4">
+          <p class="font-semibold text-navy-900">{g.label[lang]}</p>
+          <p class="mt-2 text-sm leading-7">
+            {GUIDES.filter((p) => p.group === g.id && hasRoute(p.id, lang)).map((p, i) => <>{i > 0 && ' · '}<a href={route(p.id, lang)} title={p[lang].card} class="font-medium text-accent-700 underline-offset-2 hover:underline">{p[lang].nav}</a></>)}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="mt-10"><Body html={x.why(h)} path={path} lang={lang} /></div>
+  <div class="mt-10">
+    <h2 class="text-2xl font-bold text-navy-900">{x.foldTitle}</h2>
+    {x.sections(h).map((s) => <details class="fold"><summary><h3 class="fold-h">{s.title}</h3></summary><div class="pb-4"><Body html={s.html} path={path} lang={lang} /></div></details>)}
+  </div>
+</PageLayout>

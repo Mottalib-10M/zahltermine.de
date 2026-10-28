@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { srcLink } from '../../lib/helpers';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'de';
+const path = route('about', lang);
+const title = 'Auszahlungstermine-Kalender: Herausgeber, Quellen, Grenzen';
+const description = 'Wer den Kalender der Auszahlungstermine herausgibt: Radif Partners, unabhängig, ohne Werbung für Kredite. Woher Kindergeld-, Renten- und andere Termine kommen.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Start', path: route('home', lang) }, { name: 'Über uns', path }])]} breadcrumbs={[{ label: 'Über uns' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Über {SITE_NAMES[lang]}</h1>
+    <p>{AUTHOR_DESC.de}</p>
+    <h2>Warum es diese Seite gibt</h2>
+    <p>Gegen Monatsende stellen sich Millionen Haushalte dieselbe Frage: Wann ist das Geld da? Die Antworten stehen verstreut, die Kindergeldtermine bei der Familienkasse, die Rententermine in einer Pressemeldung, die Regel für das Grundsicherungsgeld in einem Paragrafen, und viele Artikel dazu wiederholen eine Tabelle, ohne zu sagen, warum ein Termin auf den 30. statt auf den 31. fällt. Diese Seite legt alle Termine nebeneinander, rechnet sie für 2026 und 2027 nach und erklärt jede Verschiebung durch Wochenende oder Feiertag. Wer mehrere Leistungen bezieht, sieht auf der Startseite seine eigenen nächsten Zahltage und kann sie in seinen Kalender übernehmen.</p>
+    <h2>Wer sie herausgibt</h2>
+    <p>Herausgeber ist {AUTHOR_NAME}, ein Unternehmen, das Werkzeuge aus öffentlichen Regeln und Daten baut. {AUTHOR_NAME} ist keine Behörde, zahlt keine Leistungen aus, steht mit keiner Behörde in Verbindung und verwendet keine Wappen oder Logos. Die Seite vermittelt keine Kredite, keine Vorschüsse und keine Beratung und enthält keine Partnerlinks.</p>
+    <LegalIdentity lang={lang} />
+    <h2>Woher die Daten kommen</h2>
+    <p>Die Kindergeldtermine übernehmen wir von der <Fragment set:html={s('ba-kg-termine', 'Familienkasse')} />, die Rententermine 2026 aus der <Fragment set:html={s('drv-termine', 'Pressemeldung der Deutschen Rentenversicherung')} />. Alle anderen Termine rechnen wir aus dem Gesetz: <Fragment set:html={s('sgb6-118', '§ 118 SGB VI')} />, <Fragment set:html={s('sgb2-42', '§ 42 SGB II')} />, <Fragment set:html={s('sgb3-337', '§ 337 SGB III')} />, <Fragment set:html={s('beeg6', '§ 6 BEEG')} />, mit dem Kalender der Bankarbeitstage und den <Fragment set:html={s('ecb-target', 'TARGET-Schließtagen der EZB')} />. Wie, steht unter <a href={route('method', lang)}>Methode</a>; wie wir korrigieren, in den <a href={route('editorial', lang)}>Redaktionsgrundsätzen</a>.</p>
+    <h2>Ihre Daten</h2>
+    <p>Alle Rechner laufen in Ihrem Browser. Welche Leistungen Sie ankreuzen, Ihre Endziffer oder das Geburtsdatum Ihres Kindes werden weder gesendet noch gespeichert; auch die Kalenderdatei entsteht auf Ihrem Gerät. Es gibt kein Konto und kein Formular. Einzelheiten in der <a href={route('privacy', lang)}>Datenschutzerklärung</a>.</p>
+    <h2>Was die Seite nicht leistet</h2>
+    <p>Sie berechnet keine Beträge und kennt Ihren Bescheid nicht. Ob Ihre erste Zahlung pünktlich kommt, ob etwas einbehalten wird oder ob eine Nachzahlung ansteht, beantwortet Ihre Behörde.</p>
+    <h2>Schreiben Sie uns</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, wenn ein Termin nicht stimmt.</p>
+  </article>
+</PageLayout>

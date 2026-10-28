@@ -1,0 +1,30 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { breadcrumbSchema } from '../../lib/seo';
+const lang = 'en';
+const code = (name: string, t: string, h: number) => `<iframe src="${SITE_URL}/embed/${lang}/${name}/" title="${t}" width="100%" height="${h}" style="border:0;max-width:1100px" loading="lazy"></iframe>`;
+const items = [
+  { name: 'meine-zahltage', h2: 'My next payments', text: 'Tap the benefits: your readers see their next payment days with a countdown and download them as a calendar file.', t: 'My next German benefit payments', h: 1000 },
+  { name: 'kindergeld', h2: 'Kindergeld by last digit', text: 'Pick the last digit and month: the Familienkasse payment day, the next months and every digit.', t: 'Kindergeld payment dates', h: 900 },
+  { name: 'rente', h2: 'Pension payment dates', text: 'Pick the pension start and month: the payment day, the reason for any shift and the whole year.', t: 'German pension payment dates', h: 900 },
+];
+---
+<PageLayout title="Embed German benefit payment dates: Kindergeld, pension" description="Embed Kindergeld dates, German pension payment dates and the personal payment-day calendar free of charge with an iframe: copy the code, new dates appear by themselves." lang={lang} noindex={true} jsonLd={[breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Widget', path: route('widget', lang) }])]} breadcrumbs={[{ label: 'Widget' }]} showAuthor={false}>
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold text-navy-900 md:text-4xl">Embed the payment-day calendar</h1>
+    <p class="mt-3 text-lg text-navy-700">For advice centres, associations, senior citizens' offices and local papers: copy once, new dates appear by themselves.</p>
+  </header>
+  <div class="prose prose-slate max-w-none">
+    {items.map((i) => (<>
+      <h2>{i.h2}</h2>
+      <p>{i.text}</p>
+      <pre class="overflow-x-auto rounded-lg bg-navy-900 p-4 text-sm text-white"><code>{code(i.name, i.t, i.h)}</code></pre>
+    </>))}
+    <p>For the German version, replace <code>/embed/en/</code> with <code>/embed/de/</code>. Terms: the source link under the planner stays visible, the planner is not altered and is provided without warranty. What your readers enter stays on their device. Questions through the <a href={route('contact', lang)}>contact page</a>.</p>
+  </div>
+  <div class="mt-8 overflow-hidden rounded-xl border border-navy-200">
+    <iframe src={`/embed/${lang}/meine-zahltage/`} title="My next German benefit payments" width="100%" height="1000" style="border:0" loading="lazy"></iframe>
+  </div>
+</PageLayout>

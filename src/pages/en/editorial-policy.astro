@@ -1,0 +1,26 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy: sources, testing and corrections" description="Where the Kindergeld, pension and other German payment dates come from, the order in which we read sources, how the tools are tested and what happens when we get it wrong." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy and corrections</h1>
+    <p>Anyone who times their rent or a direct debit to a wrong payment day pays bounced-debit fees. So here is where every date comes from and what happens when something is wrong.</p>
+    <h2>Responsibility</h2><p>{AUTHOR_NAME} is responsible for content and tools. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Order of sources</h2>
+    <ol>
+      <li><strong>Official date lists</strong>: the Familienkasse payment dates and the German Pension Insurance list;</li>
+      <li><strong>Statutes</strong> as currently in force: Social Code Books I, II, III and VI, EStG, BEEG, WoGG, BAföG;</li>
+      <li><strong>Guidance from the authorities</strong>, such as the Federal Employment Agency on when money is credited, and the European Central Bank's TARGET closing days.</li>
+    </ol>
+    <p>Newspaper articles and advice sites are not a source for a date. A planned change, such as a bill, is called a draft and never presented as law in force.</p>
+    <h2>Calculated or copied, never estimated</h2><p>Dates from an official list are copied day by day and labelled as such. All others come from an engine that applies the statutory rule to the bank business day calendar. Where the statute sets no day, we say so and show a guide date. If a list is missing, such as Kindergeld dates for 2028, we show nothing rather than a projection.</p>
+    <h2>Handling errors</h2>
+    <ol><li>Check against the source.</li><li>Fix the engine or the date list and add a test.</li><li>The new date appears on every page at once.</li></ol>
+    <h2>Independence</h2><p>No money from banks, loan brokers or authorities. No affiliate links, no paid posts, no lead forms.</p>
+    <p>See also the <a href={route('method', lang)}>method</a>. Version of {displayDate(LAST_UPDATED, 'en-GB')}.</p>
+  </div>
+</PageLayout>

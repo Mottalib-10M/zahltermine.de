@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const description = 'Write to us if a Kindergeld, pension or other German payment date looks wrong, or if you would like to embed the payment-date calendar on your own website.';
+---
+<PageLayout title={`Contact ${SITE_NAMES[lang]}: report an error, embed the calendar`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We usually reply within a week.</p>
+    <h2>A date looks wrong</h2>
+    <p>Tell us the page, the benefit, the month and, if you can, the source: the Familienkasse list, a pension insurance notice or the statute. We check the source and correct every page at once.</p>
+    <h2>Questions about your own money</h2>
+    <p>We hold no files and cannot trigger, check or speed up a payment. If your money has not arrived, contact your Familienkasse, your pension insurance, your Jobcenter, your employment agency, your housing benefit office or your student finance office. Please do not send us a Kindergeld number, insurance number or award notice.</p>
+    <h2>Embed the calendar</h2>
+    <p>Advice centres, associations, senior citizens' offices and local papers can embed the tools free of charge: <a href={route('widget', lang)}>Embed</a>.</p>
+  </div>
+</PageLayout>

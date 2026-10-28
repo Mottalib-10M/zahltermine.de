@@ -1,0 +1,593 @@
+{
+  "_lisezmoi": "Paramètres datés du site. Chaque valeur a été relue sur la source citée le 2026-10-28. Les tableaux Kindergeld sont recopiés de la Familienkasse (jamais extrapolés) ; toutes les autres dates sont calculées par src/lib/engine/zahltermine.ts.",
+  "year": 2026,
+  "retrieved_at": "2026-10-28",
+  "valid_from": "2026-01-01",
+  "valid_to": "2027-12-31",
+  "jahre": [
+    2026,
+    2027
+  ],
+  "kindergeld": {
+    "betrag2026": 259,
+    "betrag2027Entwurf": 267,
+    "betrag2028Entwurf": 272,
+    "entwurfDatum": "2026-09-28",
+    "ersteLesung": "2026-10-08",
+    "termine": {
+      "2026": {
+        "0": [
+          8,
+          4,
+          4,
+          8,
+          6,
+          3,
+          3,
+          5,
+          3,
+          5,
+          4,
+          3
+        ],
+        "1": [
+          8,
+          6,
+          5,
+          9,
+          7,
+          8,
+          6,
+          6,
+          7,
+          6,
+          5,
+          4
+        ],
+        "2": [
+          9,
+          10,
+          6,
+          13,
+          8,
+          9,
+          7,
+          7,
+          8,
+          8,
+          6,
+          7
+        ],
+        "3": [
+          13,
+          12,
+          9,
+          14,
+          12,
+          10,
+          9,
+          10,
+          10,
+          9,
+          10,
+          8
+        ],
+        "4": [
+          14,
+          13,
+          10,
+          15,
+          13,
+          12,
+          10,
+          12,
+          11,
+          12,
+          11,
+          9
+        ],
+        "5": [
+          15,
+          16,
+          11,
+          16,
+          18,
+          15,
+          13,
+          14,
+          15,
+          13,
+          12,
+          10
+        ],
+        "6": [
+          16,
+          17,
+          12,
+          17,
+          19,
+          16,
+          14,
+          17,
+          16,
+          15,
+          13,
+          11
+        ],
+        "7": [
+          19,
+          18,
+          16,
+          20,
+          20,
+          17,
+          17,
+          18,
+          17,
+          16,
+          16,
+          14
+        ],
+        "8": [
+          22,
+          19,
+          17,
+          21,
+          21,
+          18,
+          20,
+          19,
+          18,
+          19,
+          17,
+          15
+        ],
+        "9": [
+          23,
+          20,
+          20,
+          23,
+          22,
+          22,
+          21,
+          21,
+          21,
+          20,
+          20,
+          16
+        ]
+      },
+      "2027": {
+        "0": [
+          8,
+          3,
+          3,
+          5,
+          5,
+          3,
+          5,
+          4,
+          3,
+          5,
+          4,
+          3
+        ],
+        "1": [
+          11,
+          5,
+          4,
+          8,
+          10,
+          8,
+          6,
+          6,
+          7,
+          6,
+          5,
+          6
+        ],
+        "2": [
+          12,
+          9,
+          5,
+          12,
+          11,
+          9,
+          7,
+          9,
+          8,
+          8,
+          8,
+          7
+        ],
+        "3": [
+          14,
+          11,
+          8,
+          13,
+          12,
+          10,
+          9,
+          10,
+          10,
+          11,
+          10,
+          8
+        ],
+        "4": [
+          15,
+          12,
+          9,
+          14,
+          13,
+          14,
+          12,
+          12,
+          13,
+          12,
+          11,
+          9
+        ],
+        "5": [
+          18,
+          15,
+          10,
+          15,
+          14,
+          15,
+          13,
+          16,
+          15,
+          13,
+          12,
+          10
+        ],
+        "6": [
+          19,
+          16,
+          11,
+          16,
+          19,
+          16,
+          15,
+          17,
+          16,
+          15,
+          15,
+          13
+        ],
+        "7": [
+          22,
+          17,
+          15,
+          20,
+          24,
+          17,
+          16,
+          18,
+          17,
+          18,
+          16,
+          14
+        ],
+        "8": [
+          25,
+          18,
+          16,
+          21,
+          25,
+          18,
+          19,
+          19,
+          20,
+          19,
+          19,
+          15
+        ],
+        "9": [
+          26,
+          19,
+          19,
+          22,
+          26,
+          22,
+          20,
+          20,
+          21,
+          20,
+          22,
+          16
+        ]
+      }
+    },
+    "archivDatum": "2026-01-01"
+  },
+  "rente": {
+    "tabelle2026": [
+      "2026-01-30",
+      "2026-02-27",
+      "2026-03-31",
+      "2026-04-30",
+      "2026-05-29",
+      "2026-06-30",
+      "2026-07-31",
+      "2026-08-31",
+      "2026-09-30",
+      "2026-10-30",
+      "2026-11-30",
+      "2026-12-31"
+    ],
+    "stichtagVorschuessig": "2004-04-01",
+    "anpassung2026": {
+      "datum": "2026-07-01",
+      "prozent": 4.24,
+      "rentenwertAlt": 40.79,
+      "rentenwertNeu": 42.52
+    },
+    "anpassung2025": 3.74,
+    "anpassung2024": 4.57,
+    "haltelinie": 48,
+    "haltelinieBis": 2031,
+    "pressemeldung": "2026-01-22"
+  },
+  "grundsicherung": {
+    "start": "2026-07-01",
+    "bundestag": "2026-03-05",
+    "bundesrat": "2026-03-27",
+    "regelbedarf1": 563,
+    "vorschussMax": 100,
+    "regelbedarfSeit": "2024-01-01"
+  },
+  "target": {
+    "fest": [
+      "01-01",
+      "05-01",
+      "12-25",
+      "12-26"
+    ],
+    "ostern": [
+      -2,
+      1
+    ]
+  },
+  "sources": {
+    "ba-kg-termine": {
+      "url": "https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine",
+      "label": {
+        "de": "Familienkasse der Bundesagentur für Arbeit: Auszahlungstermine Kindergeld und Kinderzuschlag",
+        "en": "Family Benefits Office (Familienkasse), Federal Employment Agency: Kindergeld and Kinderzuschlag payment dates"
+      }
+    },
+    "ba-kg-archiv": {
+      "url": "https://web.archive.org/web/20260101113131/https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine",
+      "label": {
+        "de": "Kopie der Seite Auszahlungstermine der Familienkasse vom 1. Januar 2026 im Internet Archive (Termine Januar bis September 2026)",
+        "en": "Archived copy of 1 January 2026 (Internet Archive) of the Familienkasse payment dates page, January to September 2026"
+      }
+    },
+    "estg66": {
+      "url": "https://www.gesetze-im-internet.de/estg/__66.html",
+      "label": {
+        "de": "Einkommensteuergesetz (EStG), § 66: Höhe des Kindergeldes, Zahlungszeitraum",
+        "en": "Income Tax Act (EStG), section 66: amount of Kindergeld, payment period"
+      }
+    },
+    "btdrs-21-8235": {
+      "url": "https://dserver.bundestag.de/btd/21/082/2108235.pdf",
+      "label": {
+        "de": "Deutscher Bundestag, Drucksache 21/8235 vom 28. September 2026: Gesetzentwurf Einkommensteuerreformgesetz 2027",
+        "en": "German Bundestag, printed paper 21/8235 of 28 September 2026: draft Income Tax Reform Act 2027"
+      }
+    },
+    "sgb6-118": {
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__118.html",
+      "label": {
+        "de": "Sechstes Buch Sozialgesetzbuch (SGB VI), § 118: Fälligkeit und Auszahlung",
+        "en": "Social Code Book VI (SGB VI), section 118: due date and payment"
+      }
+    },
+    "sgb6-272a": {
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__272a.html",
+      "label": {
+        "de": "SGB VI, § 272a: Fälligkeit und Auszahlung bei Beginn vor dem 1. April 2004",
+        "en": "SGB VI, section 272a: due date and payment for pensions starting before 1 April 2004"
+      }
+    },
+    "drv-termine": {
+      "url": "https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260122-auszahlungstermine_rente.html",
+      "label": {
+        "de": "Deutsche Rentenversicherung, Pressemeldung vom 22. Januar 2026: Auszahlungstermine der Rente 2026",
+        "en": "German Pension Insurance, press release of 22 January 2026: pension payment dates 2026"
+      }
+    },
+    "drv-anpassung": {
+      "url": "https://www.deutsche-rentenversicherung.de/SharedDocs/FAQ/Gesetzesaenderungen/Rentenanpassung/FAQ-Rentenanpassung-2026/Rentenanpassung-2026.html",
+      "label": {
+        "de": "Deutsche Rentenversicherung: Fragen und Antworten zur Rentenanpassung 2026",
+        "en": "German Pension Insurance: questions and answers on the 2026 pension increase"
+      }
+    },
+    "sgb2-42": {
+      "url": "https://www.gesetze-im-internet.de/sgb_2/__42.html",
+      "label": {
+        "de": "Zweites Buch Sozialgesetzbuch (SGB II), § 42: Fälligkeit, Auszahlung und Unpfändbarkeit der Leistungen",
+        "en": "Social Code Book II (SGB II), section 42: due date, payment and protection of benefits"
+      }
+    },
+    "ba-gs-auszahlung": {
+      "url": "https://www.arbeitsagentur.de/grundsicherung/finanziell-absichern/auszahlung-dauer",
+      "label": {
+        "de": "Bundesagentur für Arbeit: Grundsicherung, Auszahlung und Dauer",
+        "en": "Federal Employment Agency: basic income support, payment and duration"
+      }
+    },
+    "ba-gs": {
+      "url": "https://www.arbeitsagentur.de/grundsicherung/finanziell-absichern",
+      "label": {
+        "de": "Bundesagentur für Arbeit: Grundsicherungsgeld, finanziell absichern",
+        "en": "Federal Employment Agency: Grundsicherungsgeld, financial support"
+      }
+    },
+    "breg-grundsicherung": {
+      "url": "https://www.bundesregierung.de/breg-de/aktuelles/neue-grundsicherung-2399562",
+      "label": {
+        "de": "Bundesregierung: Die neue Grundsicherung",
+        "en": "Federal Government: the new basic income support"
+      }
+    },
+    "breg-nullrunde": {
+      "url": "https://www.bundesregierung.de/breg-de/service/fragen-und-anworten/nullrunde-buergergeld-2383676",
+      "label": {
+        "de": "Bundesregierung: Fragen und Antworten zur Nullrunde beim Regelbedarf 2026",
+        "en": "Federal Government: questions and answers on the 2026 standard rate freeze"
+      }
+    },
+    "sgb3-337": {
+      "url": "https://www.gesetze-im-internet.de/sgb_3/__337.html",
+      "label": {
+        "de": "Drittes Buch Sozialgesetzbuch (SGB III), § 337: Auszahlung im Regelfall",
+        "en": "Social Code Book III (SGB III), section 337: payment as a rule"
+      }
+    },
+    "ba-merkblatt1": {
+      "url": "https://www.arbeitsagentur.de/datei/merkblatt-fuer-arbeitslose_ba015368.pdf",
+      "label": {
+        "de": "Bundesagentur für Arbeit: Merkblatt 1 für Arbeitslose",
+        "en": "Federal Employment Agency: leaflet 1 for unemployed people"
+      }
+    },
+    "beeg6": {
+      "url": "https://www.gesetze-im-internet.de/beeg/__6.html",
+      "label": {
+        "de": "Bundeselterngeld- und Elternzeitgesetz (BEEG), § 6: Auszahlung",
+        "en": "Federal Parental Allowance and Parental Leave Act (BEEG), section 6: payment"
+      }
+    },
+    "beeg4": {
+      "url": "https://www.gesetze-im-internet.de/beeg/__4.html",
+      "label": {
+        "de": "BEEG, § 4: Art und Dauer des Bezugs (Lebensmonate)",
+        "en": "BEEG, section 4: type and duration of payment (months of life)"
+      }
+    },
+    "wogg26": {
+      "url": "https://www.gesetze-im-internet.de/wogg/__26.html",
+      "label": {
+        "de": "Wohngeldgesetz (WoGG), § 26: Zahlung des Wohngeldes",
+        "en": "Housing Benefit Act (WoGG), section 26: payment of housing benefit"
+      }
+    },
+    "bafoeg51": {
+      "url": "https://www.gesetze-im-internet.de/baf_g/__51.html",
+      "label": {
+        "de": "Bundesausbildungsförderungsgesetz (BAföG), § 51: Zahlweise",
+        "en": "Federal Training Assistance Act (BAföG), section 51: method of payment"
+      }
+    },
+    "ecb-target": {
+      "url": "https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html",
+      "label": {
+        "de": "Europäische Zentralbank: Feiertage der EZB 2026 und 2027, mit den TARGET-Schließtagen",
+        "en": "European Central Bank: ECB public holidays 2026 and 2027, with TARGET closing days marked"
+      }
+    },
+    "einigungsvertrag": {
+      "url": "https://www.gesetze-im-internet.de/einigvtr/art_2.html",
+      "label": {
+        "de": "Einigungsvertrag, Art. 2 Abs. 2: Tag der Deutschen Einheit",
+        "en": "Unification Treaty, Article 2(2): German Unity Day"
+      }
+    },
+    "ostern-ptb": {
+      "url": "https://www.ptb.de/cms/ptb/fachabteilungen/abt4/fb-44/ag-441/darstellung-der-gesetzlichen-zeit/wann-ist-ostern.html",
+      "label": {
+        "de": "Physikalisch-Technische Bundesanstalt: Wann ist Ostern? (Gaußsche Osterformel)",
+        "en": "Physikalisch-Technische Bundesanstalt: when is Easter? (Gauss's Easter formula)"
+      }
+    },
+    "sgb1-41": {
+      "url": "https://www.gesetze-im-internet.de/sgb_1/__41.html",
+      "label": {
+        "de": "Erstes Buch Sozialgesetzbuch (SGB I), § 41: Fälligkeit",
+        "en": "Social Code Book I (SGB I), section 41: due date"
+      }
+    },
+    "bkgg6a": {
+      "url": "https://www.gesetze-im-internet.de/bkgg_1996/__6a.html",
+      "label": {
+        "de": "Bundeskindergeldgesetz (BKGG), § 6a: Kinderzuschlag, Bewilligungszeitraum von sechs Monaten",
+        "en": "Federal Child Benefit Act (BKGG), section 6a: Kinderzuschlag, six-month award period"
+      }
+    },
+    "bkgg11": {
+      "url": "https://www.gesetze-im-internet.de/bkgg_1996/__11.html",
+      "label": {
+        "de": "BKGG, § 11: Gewährung des Kindergeldes und des Kinderzuschlags (monatlich)",
+        "en": "BKGG, section 11: Kindergeld and Kinderzuschlag granted monthly"
+      }
+    },
+    "sgb6-65": {
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__65.html",
+      "label": {
+        "de": "SGB VI, § 65: Anpassung der Renten zum 1. Juli",
+        "en": "SGB VI, section 65: pension adjustment on 1 July"
+      }
+    },
+    "sgb6-69": {
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__69.html",
+      "label": {
+        "de": "SGB VI, § 69: Verordnungsermächtigung, aktueller Rentenwert bis zum 30. Juni",
+        "en": "SGB VI, section 69: regulation setting the pension value by 30 June"
+      }
+    },
+    "sgb6-99": {
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__99.html",
+      "label": {
+        "de": "SGB VI, § 99: Beginn der Rente",
+        "en": "SGB VI, section 99: start of the pension"
+      }
+    },
+    "sgb12-40": {
+      "url": "https://www.gesetze-im-internet.de/sgb_12/__40.html",
+      "label": {
+        "de": "Zwölftes Buch Sozialgesetzbuch (SGB XII), § 40: Fortschreibung der Regelbedarfsstufen bis zum 31. Oktober",
+        "en": "Social Code Book XII, section 40: update of the standard rates by 31 October"
+      }
+    },
+    "sgb12-28a": {
+      "url": "https://www.gesetze-im-internet.de/sgb_12/__28a.html",
+      "label": {
+        "de": "SGB XII, § 28a: Fortschreibung der Regelbedarfsstufen, Absatz 5 Besitzschutz",
+        "en": "SGB XII, section 28a: update of the standard rates, subsection 5 protection of existing amounts"
+      }
+    },
+    "wogg25": {
+      "url": "https://www.gesetze-im-internet.de/wogg/__25.html",
+      "label": {
+        "de": "Wohngeldgesetz (WoGG), § 25: Bewilligungszeitraum",
+        "en": "Housing Benefit Act (WoGG), section 25: award period"
+      }
+    },
+    "bafoeg50": {
+      "url": "https://www.gesetze-im-internet.de/baf_g/__50.html",
+      "label": {
+        "de": "Bundesausbildungsförderungsgesetz (BAföG), § 50: Bescheid",
+        "en": "Federal Training Assistance Act (BAföG), section 50: decision notice"
+      }
+    },
+    "sgb3-154": {
+      "url": "https://www.gesetze-im-internet.de/sgb_3/__154.html",
+      "label": {
+        "de": "Drittes Buch Sozialgesetzbuch (SGB III), § 154: Berechnung und Leistung",
+        "en": "Social Code Book III (SGB III), section 154: calculation and payment"
+      }
+    },
+    "beeg7": {
+      "url": "https://www.gesetze-im-internet.de/beeg/__7.html",
+      "label": {
+        "de": "Bundeselterngeld- und Elternzeitgesetz (BEEG), § 7: Antragstellung",
+        "en": "Federal Parental Allowance and Parental Leave Act (BEEG), section 7: application"
+      }
+    }
+  }
+}

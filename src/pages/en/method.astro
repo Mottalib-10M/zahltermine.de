@@ -1,0 +1,46 @@
+---
+/** Method: bank business days, rule per benefit, Kindergeld list, tests, limits. Every date from the engine. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { dLong } from '../../lib/tool-specs';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('method', lang);
+const title = 'Benefit payment dates Germany: method, rules and tests';
+const description = 'How we work out German benefit payment dates for 2026 and 2027: bank business days, due-date rules, the Familienkasse list, automated tests and the limits.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => dLong(x, lang);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Method', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Method', path }])]} breadcrumbs={[{ label: 'Method' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>How this site works out payment days</h1>
+    <p>Every date on this site has one of three origins, and every table says which: an <strong>official list</strong> (Kindergeld, the 2026 pension dates), a <strong>statutory rule</strong> we apply against the calendar of bank business days (pension 2027, Grundsicherungsgeld, unemployment benefit), or a <strong>guide date</strong> where the statute only says "in advance" or "during the month" and the office picks the day (housing benefit, BAföG, parental allowance). All tools run in your browser; nothing you select leaves your device. Sources last read on {d(K.P.retrieved_at)}.</p>
+
+    <h2>The bank business day calendar</h2>
+    <p>Money is only credited on days when banks post transfers. We count Monday to Friday as bank business days, except the nine nationwide holidays: New Year's Day, Good Friday, Easter Monday, 1 May, Ascension Day, Whit Monday, 3 October under <Fragment set:html={s('einigungsvertrag', 'Article 2(2) of the Unification Treaty')} />, and 25 and 26 December. Six of them are also <Fragment set:html={s('ecb-target', 'closing days of the TARGET payment system')} />. Holidays that only apply in some states, such as Corpus Christi, do not move nationwide payment runs. Christmas Eve and New Year's Eve are bank business days: the pension insurance pays on 31 December. Easter comes from <Fragment set:html={s('ostern-ptb', "the PTB version of Gauss's formula")} />, checked against a second method for 1900 to 2200.</p>
+
+    <h2>The rule for each benefit</h2>
+    <ul>
+      <li><strong>Pension starting April 2004 or later</strong>: last bank business day of the month it covers (<Fragment set:html={s('sgb6-118', 'section 118(1) SGB VI')} />).</li>
+      <li><strong>Pension starting before April 2004</strong>: last bank business day of the month before (<Fragment set:html={s('sgb6-272a', 'section 272a SGB VI')} />), also for a survivor's pension that directly follows such a pension.</li>
+      <li><strong>Grundsicherungsgeld (formerly Bürgergeld)</strong>: monthly in advance (<Fragment set:html={s('sgb2-42', 'section 42 SGB II')} />); according to the <Fragment set:html={s('ba-gs-auszahlung', 'Federal Employment Agency')} /> the money is usually there one calendar day before the month. If that day is a weekend or holiday, we use the bank business day before.</li>
+      <li><strong>Unemployment benefit</strong>: monthly in arrears (<Fragment set:html={s('sgb3-337', 'section 337(2) SGB III')} />); per <Fragment set:html={s('ba-merkblatt1', 'leaflet 1')} />, available on the first working day of the next month.</li>
+      <li><strong>Housing benefit</strong> and <strong>BAföG</strong>: monthly in advance (<Fragment set:html={s('wogg26', 'section 26(2) WoGG')} />, <Fragment set:html={s('bafoeg51', 'section 51(1) BAföG')} />). There is no nationwide day; we show the first bank business day of the month as a guide.</li>
+      <li><strong>Parental allowance</strong>: during the month of life it covers (<Fragment set:html={s('beeg6', 'section 6 BEEG')} />). A month of life starts on the birth date and ends the day before the same date next month; if that date does not exist (31 January), it ends on the last day of the month.</li>
+    </ul>
+
+    <h2>Kindergeld: the Familienkasse list, never extrapolated</h2>
+    <p>The Familienkasse pays by the last digit of the Kindergeld number, spread over the month, with no published formula. We therefore copy the <Fragment set:html={s('ba-kg-termine', 'Familienkasse payment list')} /> day by day. The live page shows October to December 2026 and all of 2027; January to September 2026 come from the <Fragment set:html={s('ba-kg-archiv', 'Internet Archive copy of that page from 1 January 2026')} />. For 2028 the site shows nothing until the Familienkasse publishes. A test checks that each of the 240 dates is a bank business day and that the digits run in order within a month.</p>
+
+    <h2>Tests</h2>
+    <p>Automated tests run on every change: the engine must reproduce the twelve 2026 dates of the <Fragment set:html={s('drv-termine', 'German Pension Insurance')} />, from {d(K.P.rente.tabelle2026[0])} to {d(K.P.rente.tabelle2026[11])}; the TARGET closing days for 2026 and 2027 must match the ECB list; months of life must follow each other without a gap; the calendar file must follow the iCalendar format.</p>
+
+    <h2>Limits</h2>
+    <p>A date here is the day the money should be in your account under the rule. For Kindergeld there is expressly no right to a particular day. A first payment after an application, back payments, garnishment, a new bank account or a check by the office can move it. This site does not calculate amounts. Your award notice has the final word.</p>
+
+    <h2>Report an error</h2>
+    <p>Use the <a href={route('contact', lang)}>contact page</a>; how we correct things is set out in the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+  </article>
+</PageLayout>

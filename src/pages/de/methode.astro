@@ -1,0 +1,46 @@
+---
+/** Methode : Bankarbeitstage, Regeln je Leistung, Kindergeld-Tabelle, Tests, Grenzen. Jedes Datum aus dem Rechenkern. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { dLong } from '../../lib/tool-specs';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+const lang = 'de';
+const path = route('method', lang);
+const title = 'Auszahlungstermine berechnen: Methode, Regeln und Tests';
+const description = 'Wie wir Auszahlungstermine 2026 und 2027 bestimmen: Bankarbeitstage, Fälligkeit nach SGB II, III und VI, Tabelle der Familienkasse, automatische Tests, Grenzen.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => dLong(x, lang);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Methode', description, path, lang }), breadcrumbSchema([{ name: 'Start', path: route('home', lang) }, { name: 'Methode', path }])]} breadcrumbs={[{ label: 'Methode' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Wie diese Seite Zahltermine bestimmt</h1>
+    <p>Jedes Datum auf dieser Seite hat genau eine von drei Herkünften, und jede Tabelle sagt, welche: eine <strong>amtliche Terminliste</strong> (Kindergeld, Rente 2026), eine <strong>gesetzliche Regel</strong>, die wir mit dem Kalender der Bankarbeitstage ausrechnen (Rente 2027, Grundsicherungsgeld, Arbeitslosengeld), oder eine <strong>Orientierung</strong>, wenn das Gesetz nur „im Voraus“ oder „im Laufe des Monats“ sagt und die Behörde den Tag selbst wählt (Wohngeld, BAföG, Elterngeld). Alle Rechner laufen in Ihrem Browser; was Sie auswählen, bleibt auf Ihrem Gerät. Letzte Lesung der Quellen: {d(K.P.retrieved_at)}.</p>
+
+    <h2>Der Kalender der Bankarbeitstage</h2>
+    <p>Geld wird nur an Tagen gutgeschrieben, an denen Banken buchen. Als Bankarbeitstag zählen wir Montag bis Freitag, außer an den neun bundesweiten Feiertagen: Neujahr, Karfreitag, Ostermontag, 1. Mai, Christi Himmelfahrt, Pfingstmontag, 3. Oktober nach <Fragment set:html={s('einigungsvertrag', 'Art. 2 Abs. 2 Einigungsvertrag')} /> sowie 25. und 26. Dezember. Sechs davon sind zugleich <Fragment set:html={s('ecb-target', 'Schließtage des europäischen Zahlungssystems TARGET')} />. Feiertage, die nur in einzelnen Ländern gelten, etwa Fronleichnam oder der Reformationstag, verschieben die bundesweiten Zahlläufe nicht. Heiligabend und Silvester sind Bankarbeitstage: Die Rentenversicherung zahlt am 31. Dezember. Ostern berechnen wir mit der <Fragment set:html={s('ostern-ptb', 'Gaußschen Osterformel der PTB')} />; ein zweites Verfahren prüft sie für die Jahre 1900 bis 2200 nach.</p>
+
+    <h2>Die Regel jeder Leistung</h2>
+    <ul>
+      <li><strong>Rente, Beginn ab April 2004</strong>: am letzten Bankarbeitstag des Monats, für den sie gilt (<Fragment set:html={s('sgb6-118', '§ 118 Abs. 1 SGB VI')} />).</li>
+      <li><strong>Rente, Beginn vor April 2004</strong>: am letzten Bankarbeitstag des Vormonats (<Fragment set:html={s('sgb6-272a', '§ 272a SGB VI')} />). Das gilt auch für eine Hinterbliebenenrente, die sich an eine solche Rente anschließt.</li>
+      <li><strong>Grundsicherungsgeld (früher Bürgergeld)</strong>: monatlich im Voraus (<Fragment set:html={s('sgb2-42', '§ 42 SGB II')} />); nach der <Fragment set:html={s('ba-gs-auszahlung', 'Bundesagentur für Arbeit')} /> steht das Geld in der Regel einen Kalendertag vor dem Monat bereit. Fällt dieser Tag auf ein Wochenende oder einen Feiertag, rechnen wir mit dem Bankarbeitstag davor.</li>
+      <li><strong>Arbeitslosengeld</strong>: monatlich nachträglich (<Fragment set:html={s('sgb3-337', '§ 337 Abs. 2 SGB III')} />); laut <Fragment set:html={s('ba-merkblatt1', 'Merkblatt 1')} /> verfügbar am ersten Arbeitstag des Folgemonats.</li>
+      <li><strong>Wohngeld</strong> und <strong>BAföG</strong>: monatlich im Voraus (<Fragment set:html={s('wogg26', '§ 26 Abs. 2 WoGG')} />, <Fragment set:html={s('bafoeg51', '§ 51 Abs. 1 BAföG')} />). Einen bundesweiten Zahltag gibt es nicht; wir zeigen den ersten Bankarbeitstag des Monats als Orientierung.</li>
+      <li><strong>Elterngeld</strong>: im Laufe des Lebensmonats, für den es bestimmt ist (<Fragment set:html={s('beeg6', '§ 6 BEEG')} />). Lebensmonate beginnen am Tag der Geburt und enden am Tag vor derselben Zahl im Folgemonat; fehlt diese Zahl (31. Januar), endet der Lebensmonat am Monatsletzten.</li>
+    </ul>
+
+    <h2>Kindergeld: die Liste der Familienkasse, nicht hochgerechnet</h2>
+    <p>Die Familienkasse zahlt nach der letzten Ziffer der Kindergeldnummer, verteilt über den Monat. Diese Verteilung folgt keiner veröffentlichten Formel; wir übernehmen deshalb die <Fragment set:html={s('ba-kg-termine', 'Terminliste der Familienkasse')} /> Tag für Tag. Die aktuelle Seite zeigt Oktober bis Dezember 2026 und das ganze Jahr 2027; die Termine Januar bis September 2026 stammen aus der <Fragment set:html={s('ba-kg-archiv', 'Kopie dieser Seite vom 1. Januar 2026 im Internet Archive')} />. Für 2028 nennt die Seite noch keine Termine, solange die Familienkasse keine veröffentlicht hat. Ein Test prüft, dass jeder der 240 übernommenen Termine ein Bankarbeitstag ist und die Endziffern im Monat aufsteigend liegen.</p>
+
+    <h2>Tests</h2>
+    <p>Bei jeder Änderung laufen automatische Tests: Der Rechenkern muss die zwölf Termine der <Fragment set:html={s('drv-termine', 'Rentenversicherung für 2026')} /> exakt treffen, vom {d(K.P.rente.tabelle2026[0])} bis zum {d(K.P.rente.tabelle2026[11])}; die TARGET-Schließtage 2026 und 2027 müssen mit der Liste der EZB übereinstimmen; Lebensmonate müssen lückenlos aneinander anschließen; die Kalenderdatei muss dem Format iCalendar entsprechen.</p>
+
+    <h2>Grenzen</h2>
+    <p>Ein Termin ist der Tag, an dem das Geld nach der Regel auf dem Konto sein soll. Einen Rechtsanspruch auf einen bestimmten Tag gibt es beim Kindergeld ausdrücklich nicht. Die erste Zahlung nach einem Antrag, Nachzahlungen, Pfändungen, ein Kontowechsel oder eine Prüfung durch die Behörde können den Tag verschieben. Beträge berechnet diese Seite nicht. Maßgeblich ist Ihr Bescheid.</p>
+
+    <h2>Fehler melden</h2>
+    <p>Über die <a href={route('contact', lang)}>Kontaktseite</a>; wie wir korrigieren, steht in den <a href={route('editorial', lang)}>Redaktionsgrundsätzen</a>.</p>
+  </article>
+</PageLayout>
