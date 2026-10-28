@@ -1,6 +1,6 @@
 {
- "name": "DE Auszahlungstermine",
- "short_name": "Auszahlungstermine",
+ "name": "Zahltermine",
+ "short_name": "Zahltermine",
  "description": "Auszahlungstermine 2026 und 2027 für Kindergeld nach Endziffer, Rente, Grundsicherungsgeld, Arbeitslosengeld, Elterngeld, Wohngeld und BAföG, mit Kalender-Export.",
  "start_url": "/de/",
  "display": "standalone",

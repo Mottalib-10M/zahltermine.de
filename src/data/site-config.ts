@@ -1,8 +1,8 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://de-auszahlungstermine.example";
-export const SITE_NAMES: Record<string, string> = {"de": "DE Auszahlungstermine", "en": "DE Auszahlungstermine"};
+export const SITE_URL = "https://zahltermine.de";
+export const SITE_NAMES: Record<string, string> = {"de": "Zahltermine", "en": "Zahltermine"};
 // Partie du nom affichée en couleur dans l'en-tête (RECETTE §10.3), « » pour aucune.
-export const BRAND_ACCENT = "Auszahlungstermine";
+export const BRAND_ACCENT = "termine";
 /** Locale des nombres et des dates : anglais britannique pour la version anglaise. */
 export const NUM_TAGS: Record<string, string> = {"de": "de-DE", "en": "en-GB"};
 export const LANG_TAGS: Record<string, string> = {"de": "de-DE", "en": "en-DE"};
@@ -20,7 +20,7 @@ export const AUTHOR_DESC: Record<string, string> = {"de": "Radif Partners trägt
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"de": ["Auszahlungstermine des Kindergeldes nach Endziffer", "Rentenzahltermine nach § 118 und § 272a SGB VI", "Zahlung des Grundsicherungsgeldes nach § 42 SGB II", "Bankarbeitstage und TARGET-Schließtage", "Fälligkeit von Arbeitslosengeld, Elterngeld, Wohngeld und BAföG"], "en": ["German child benefit payment dates by final digit", "German pension payment dates", "Payment of basic income support (Grundsicherungsgeld)", "Bank business days and TARGET closing days", "Due dates of unemployment benefit, parental allowance, housing benefit and BAföG"]};
-export const CONTACT_EMAIL = "kontakt@de-auszahlungstermine.example";
+export const CONTACT_EMAIL = "contact@zahltermine.de";
 export const THEME_COLOR = '#1E5A8A';
 export const LOGO_SYMBOL = 'AZ';
 export const BING_VERIFY_CODE = '';
